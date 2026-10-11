@@ -5,13 +5,24 @@
   - 沿用官方译文  -> zh.original.ts（还原 TS 转义）
 比对用 Node 执行 bundle 里的对象字面量，拿到运行时真实字符串。
 """
-import json, re, subprocess, os
+import json, re, subprocess, os, shutil
 from _bundle import detect_bundle
 
 BUNDLE = detect_bundle()
 HERE = os.path.dirname(os.path.abspath(__file__))
-I18N = r"D:\XIAZAI\浏览器\2026-10-12-00-28-27\omnirush-i18n"
-NODE = r"C:\Users\18351\.workbuddy-ai\binaries\node\versions\22.22.2-6\node.exe"
+I18N = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "omnirush-i18n")
+def _find_node():
+    """优先用 PATH 里的 node，找不到再回退到常见安装位置"""
+    exe = shutil.which("node")
+    if exe:
+        return exe
+    for cand in ['C:\\Users\\18351\\.workbuddy-ai\\binaries\\node\\versions\\22.22.2-6\\node.exe']:
+        if os.path.exists(cand):
+            return cand
+    return "node"
+
+
+NODE = _find_node()
 
 PLURAL = ("zero", "one", "two", "few", "many", "other")
 PRE = re.compile(r"_(?:" + "|".join(PLURAL) + r")$")

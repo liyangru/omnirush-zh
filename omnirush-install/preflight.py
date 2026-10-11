@@ -49,6 +49,49 @@ check("modprobe.mjs 解析通过", r.returncode == 0, r.stderr[:200])
 
 print()
 print("=" * 70)
+print("1b. 未定义名字静态检查（symtable，抓 NameError）")
+print("=" * 70)
+import builtins
+import symtable
+
+
+def undefined_names(path):
+    """返回 [(作用域名, 名字)] —— 被引用但没有定义来源的名字"""
+    src = open(path, encoding="utf-8").read()
+    try:
+        top = symtable.symtable(src, path, "exec")
+    except SyntaxError:
+        return []
+    builtin_names = set(dir(builtins))
+    bad = []
+
+    def walk(tbl, is_module):
+        for sym in tbl.get_symbols():
+            n = sym.get_name()
+            if not sym.is_referenced() or n in builtin_names:
+                continue
+            if (sym.is_assigned() or sym.is_imported() or sym.is_parameter()
+                    or sym.is_free() or sym.is_global() or sym.is_declared_global()
+                    or sym.is_namespace()):
+                continue
+            bad.append((tbl.get_name(), n))
+        for child in tbl.get_children():
+            walk(child, False)
+
+    walk(top, True)
+    return bad
+
+
+undef = []
+for f in sorted(os.listdir(HERE)):
+    if not f.endswith(".py") or f.startswith("_"):
+        continue
+    for scope, name in undefined_names(os.path.join(HERE, f)):
+        undef.append(f"{f}: {name} (in {scope})")
+check("无未定义名字", not undef, "; ".join(undef[:6]))
+
+print()
+print("=" * 70)
 print("2. 幂等重跑 apply_all2.py")
 print("=" * 70)
 r = subprocess.run([PY, os.path.join(HERE, "apply_all2.py")], cwd=HERE,

@@ -10,11 +10,12 @@
 import json, re, shutil, sys, os, subprocess
 from _bundle import detect_bundle
 
-ASSETS = r"C:\Users\18351\AppData\Local\Programs\@omnirushdesktop\resources\app-dist\assets"
+HERE = os.path.dirname(os.path.abspath(__file__))
+I18N = os.path.join(os.path.dirname(HERE), "omnirush-i18n")
 BUNDLE = detect_bundle()
 BAK = BUNDLE + ".orig-backup"
-NEW_ZH = r"D:\XIAZAI\浏览器\2026-10-12-00-28-27\omnirush-i18n\zh.ts"
-ORIG_ZH = r"D:\XIAZAI\浏览器\2026-10-12-00-28-27\omnirush-i18n\zh.original.ts"
+NEW_ZH = os.path.join(I18N, "zh.ts")
+ORIG_ZH = os.path.join(I18N, "zh.original.ts")
 
 FIRST_KEY = '"app.compact_command_desc":"'
 

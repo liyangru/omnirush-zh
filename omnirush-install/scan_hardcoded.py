@@ -7,7 +7,7 @@ import re, json, os, collections, sys
 from _bundle import detect_bundle
 
 BUNDLE = detect_bundle()
-I18N = r"D:\XIAZAI\浏览器\2026-10-12-00-28-27\omnirush-i18n"
+I18N = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "omnirush-i18n")
 
 UI_PROPS = {
     "children", "title", "subtitle", "label", "description", "placeholder",
