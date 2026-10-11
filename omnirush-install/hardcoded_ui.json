@@ -1,0 +1,952 @@
+[
+ {
+  "prop": "label",
+  "text": "English",
+  "offset": 1195757
+ },
+ {
+  "prop": "label",
+  "text": "Japanese",
+  "offset": 1195807
+ },
+ {
+  "prop": "label",
+  "text": "Chinese (Simplified)",
+  "offset": 1195854
+ },
+ {
+  "prop": "label",
+  "text": "Vietnamese",
+  "offset": 1195914
+ },
+ {
+  "prop": "label",
+  "text": "Portuguese (BR)",
+  "offset": 1195973
+ },
+ {
+  "prop": "label",
+  "text": "Thai",
+  "offset": 1196038
+ },
+ {
+  "prop": "label",
+  "text": "French",
+  "offset": 1196081
+ },
+ {
+  "prop": "label",
+  "text": "Catalan",
+  "offset": 1196131
+ },
+ {
+  "prop": "label",
+  "text": "Spanish",
+  "offset": 1196180
+ },
+ {
+  "prop": "label",
+  "text": "Russian",
+  "offset": 1196230
+ },
+ {
+  "prop": "message",
+  "text": "Failed to load tasks",
+  "offset": 1205208
+ },
+ {
+  "prop": "description",
+  "text": "Start a task on your cloud computer",
+  "offset": 1621171
+ },
+ {
+  "prop": "description",
+  "text": "Start a task on your connected desktop computer",
+  "offset": 1621293
+ },
+ {
+  "prop": "label",
+  "text": "[skill ${e.name}]",
+  "offset": 1623149
+ },
+ {
+  "prop": "message",
+  "text": "Dimension type must start with a lowercase letter and contain only lowercase letters, numbers, dots, underscores, or hyphens.",
+  "offset": 1639139
+ },
+ {
+  "prop": "message",
+  "text": "Dimension value must contain only letters, numbers, dots, underscores, colons, slashes, or hyphens.",
+  "offset": 1639367
+ },
+ {
+  "prop": "message",
+  "text": "Dimension metadata is too large.",
+  "offset": 1639564
+ },
+ {
+  "prop": "message",
+  "text": "dimensionType and dimensionValue must be supplied together.",
+  "offset": 1640108
+ },
+ {
+  "prop": "label",
+  "text": "Open console",
+  "offset": 1654921
+ },
+ {
+  "prop": "title",
+  "text": "Task completed",
+  "offset": 1667282
+ },
+ {
+  "prop": "body",
+  "text": "The session finished running.",
+  "offset": 1667304
+ },
+ {
+  "prop": "title",
+  "text": "Task failed",
+  "offset": 1667389
+ },
+ {
+  "prop": "title",
+  "text": "Permission needed",
+  "offset": 1667526
+ },
+ {
+  "prop": "title",
+  "text": "Question needs your answer",
+  "offset": 1667689
+ },
+ {
+  "prop": "body",
+  "text": "Some features and appearance settings are managed by your administrator.",
+  "offset": 1712615
+ },
+ {
+  "prop": "children",
+  "text": "Architecture mismatch",
+  "offset": 1723117
+ },
+ {
+  "prop": "children",
+  "text": "Install the correct omnirush.ai build",
+  "offset": 1723297
+ },
+ {
+  "prop": "children",
+  "text": "Running app",
+  "offset": 1723841
+ },
+ {
+  "prop": "children",
+  "text": "Your system",
+  "offset": 1724221
+ },
+ {
+  "prop": "children",
+  "text": "Download correct version",
+  "offset": 1724699
+ },
+ {
+  "prop": "children",
+  "text": "Open release page",
+  "offset": 1724940
+ },
+ {
+  "prop": "children",
+  "text": "Why omnirush.ai stopped here",
+  "offset": 1725341
+ },
+ {
+  "prop": "name",
+  "text": "FieldControl",
+  "offset": 1797101
+ },
+ {
+  "prop": "message",
+  "text": "Unable to finish omnirush.ai Enterprise sign-in.",
+  "offset": 1801345
+ },
+ {
+  "prop": "message",
+  "text": "Unable to save this omnirush.ai server.",
+  "offset": 1801905
+ },
+ {
+  "prop": "children",
+  "text": "omnirush.ai Enterprise",
+  "offset": 1803216
+ },
+ {
+  "prop": "children",
+  "text": "Link this app to your organization",
+  "offset": 1803461
+ },
+ {
+  "prop": "children",
+  "text": "Enter your workspace address — the page where you downloaded this app. Sign-in finishes in your browser and returns here.",
+  "offset": 1803581
+ },
+ {
+  "prop": "children",
+  "text": "Workspace address",
+  "offset": 1803945
+ },
+ {
+  "prop": "message",
+  "text": "visibilitychange: ${document.visibilityState}",
+  "offset": 1809586
+ },
+ {
+  "prop": "message",
+  "text": "debug-logger started",
+  "offset": 1809973
+ },
+ {
+  "prop": "children",
+  "text": "Allow and start",
+  "offset": 1821725
+ },
+ {
+  "prop": "title",
+  "text": "${n.title} · ${r.name}",
+  "offset": 1824551
+ },
+ {
+  "prop": "children",
+  "text": "omnirush.ai Web",
+  "offset": 1846034
+ },
+ {
+  "prop": "children",
+  "text": "Check again",
+  "offset": 1846930
+ },
+ {
+  "prop": "name",
+  "text": "Accordion",
+  "offset": 1871316
+ },
+ {
+  "prop": "name",
+  "text": "Collapsible",
+  "offset": 1872126
+ },
+ {
+  "prop": "name",
+  "text": "RadioGroup",
+  "offset": 1914616
+ },
+ {
+  "prop": "placeholder",
+  "text": "Paste the code from your browser",
+  "offset": 1920580
+ },
+ {
+  "prop": "children",
+  "text": "Your organization",
+  "offset": 1923028
+ },
+ {
+  "prop": "children",
+  "text": "Loading organizations...",
+  "offset": 1923124
+ },
+ {
+  "prop": "children",
+  "text": "Choose your organization",
+  "offset": 1923272
+ },
+ {
+  "prop": "message",
+  "text": "Unable to load organizations.",
+  "offset": 1923405
+ },
+ {
+  "prop": "children",
+  "text": "Your organization",
+  "offset": 1923590
+ },
+ {
+  "prop": "children",
+  "text": "Loading organizations...",
+  "offset": 1923686
+ },
+ {
+  "prop": "message",
+  "text": "The application update could not be prepared.",
+  "offset": 1925605
+ },
+ {
+  "prop": "message",
+  "text": "Workspace branding could not be prepared.",
+  "offset": 1925781
+ },
+ {
+  "prop": "children",
+  "text": "Preparing workspace identity",
+  "offset": 1926424
+ },
+ {
+  "prop": "children",
+  "text": "Preparing workspace...",
+  "offset": 1926642
+ },
+ {
+  "prop": "children",
+  "text": "Workspace identity is ready",
+  "offset": 1926790
+ },
+ {
+  "prop": "children",
+  "text": "Why restart?",
+  "offset": 1927557
+ },
+ {
+  "prop": "children",
+  "text": "Restarting refreshes the workspace name and icon across your operating system and installs the prepared application update.",
+  "offset": 1927633
+ },
+ {
+  "prop": "children",
+  "text": "Continue without restarting",
+  "offset": 1927847
+ },
+ {
+  "prop": "children",
+  "text": "Loading available resources...",
+  "offset": 1928222
+ },
+ {
+  "prop": "children",
+  "text": "You have access to the following resources.",
+  "offset": 1928815
+ },
+ {
+  "prop": "children",
+  "text": "Loading available resources...",
+  "offset": 1928945
+ },
+ {
+  "prop": "title",
+  "text": "AI Providers",
+  "offset": 1929267
+ },
+ {
+  "prop": "description",
+  "text": "Models you can use in your workspace.",
+  "offset": 1929294
+ },
+ {
+  "prop": "description",
+  "text": "App stores with extensions and plugins for your workspace.",
+  "offset": 1929568
+ },
+ {
+  "prop": "children",
+  "text": "No resources have been configured for this organization yet.",
+  "offset": 1930089
+ },
+ {
+  "prop": "children",
+  "text": "Add AI providers or marketplaces from the omnirush.ai Cloud dashboard.",
+  "offset": 1930173
+ },
+ {
+  "prop": "children",
+  "text": "Providers are added to your workspace automatically. Collections are available from Cloud settings.",
+  "offset": 1930570
+ },
+ {
+  "prop": "label",
+  "text": "${a} · ${Ho(r.id,r.name)}",
+  "offset": 1932290
+ },
+ {
+  "prop": "children",
+  "text": "Choose your organization",
+  "offset": 1934123
+ },
+ {
+  "prop": "message",
+  "text": "Unable to select organization.",
+  "offset": 1934258
+ },
+ {
+  "prop": "children",
+  "text": "Select the organization whose cloud resources should be connected to this workspace.",
+  "offset": 1934315
+ },
+ {
+  "prop": "placeholder",
+  "text": "Search organizations...",
+  "offset": 1934944
+ },
+ {
+  "prop": "children",
+  "text": "No organizations match your search.",
+  "offset": 1935873
+ },
+ {
+  "prop": "title",
+  "text": "${c} available",
+  "offset": 1938856
+ },
+ {
+  "prop": "label",
+  "text": "Open sessions",
+  "offset": 1950669
+ },
+ {
+  "prop": "description",
+  "text": "Navigate to the main session view.",
+  "offset": 1950697
+ },
+ {
+  "prop": "label",
+  "text": "Open general settings",
+  "offset": 1950820
+ },
+ {
+  "prop": "description",
+  "text": "Navigate to general settings.",
+  "offset": 1950856
+ },
+ {
+  "prop": "label",
+  "text": "Open extensions",
+  "offset": 1950974
+ },
+ {
+  "prop": "description",
+  "text": "Browse the skills and MCPs available to this agent.",
+  "offset": 1951004
+ },
+ {
+  "prop": "label",
+  "text": "Open provider settings",
+  "offset": 1951156
+ },
+ {
+  "prop": "description",
+  "text": "Navigate to AI provider settings.",
+  "offset": 1951193
+ },
+ {
+  "prop": "label",
+  "text": "Open authorized folder settings",
+  "offset": 1951320
+ },
+ {
+  "prop": "description",
+  "text": "Navigate to authorized folders and file access settings.",
+  "offset": 1951366
+ },
+ {
+  "prop": "label",
+  "text": "Open appearance settings",
+  "offset": 1951517
+ },
+ {
+  "prop": "description",
+  "text": "Navigate to appearance settings.",
+  "offset": 1951556
+ },
+ {
+  "prop": "label",
+  "text": "Open a settings panel",
+  "offset": 1951676
+ },
+ {
+  "prop": "description",
+  "text": "Navigate to a specific settings panel by tab id.",
+  "offset": 1951712
+ },
+ {
+  "prop": "label",
+  "text": "Go back",
+  "offset": 1952284
+ },
+ {
+  "prop": "description",
+  "text": "Navigate back one entry in history.",
+  "offset": 1952306
+ },
+ {
+  "prop": "label",
+  "text": "Go forward",
+  "offset": 1952413
+ },
+ {
+  "prop": "description",
+  "text": "Navigate forward one entry in history.",
+  "offset": 1952438
+ },
+ {
+  "prop": "label",
+  "text": "What can omnirush.ai do?",
+  "offset": 1952551
+ },
+ {
+  "prop": "description",
+  "text": "List the main capabilities of omnirush.ai.",
+  "offset": 1952590
+ },
+ {
+  "prop": "label",
+  "text": "Browse the web",
+  "offset": 1952757
+ },
+ {
+  "prop": "description",
+  "text": "Control a browser to navigate, read page content, and automate web tasks.",
+  "offset": 1952786
+ },
+ {
+  "prop": "label",
+  "text": "AI model providers",
+  "offset": 1952885
+ },
+ {
+  "prop": "description",
+  "text": "Connect Anthropic, OpenAI, Google, OpenRouter, Ollama, or other LLM providers.",
+  "offset": 1952918
+ },
+ {
+  "prop": "label",
+  "text": "File management",
+  "offset": 1953117
+ },
+ {
+  "prop": "description",
+  "text": "Read, write, and organize files in your workspace.",
+  "offset": 1953147
+ },
+ {
+  "prop": "label",
+  "text": "Write and run code",
+  "offset": 1953218
+ },
+ {
+  "prop": "description",
+  "text": "Generate, edit, and execute code with full tool access.",
+  "offset": 1953251
+ },
+ {
+  "prop": "description",
+  "text": "Install specialized skill packs for specific workflows.",
+  "offset": 1953350
+ },
+ {
+  "prop": "label",
+  "text": "Automations",
+  "offset": 1953433
+ },
+ {
+  "prop": "description",
+  "text": "Schedule recurring tasks and background agents.",
+  "offset": 1953459
+ },
+ {
+  "prop": "label",
+  "text": "Share sessions",
+  "offset": 1953530
+ },
+ {
+  "prop": "description",
+  "text": "Share workspace sessions with collaborators via omnirush.ai Cloud.",
+  "offset": 1953559
+ },
+ {
+  "prop": "hint",
+  "text": "Use settings.panel.open for settings such as AI providers, and route.extensions.skills to browse Library.",
+  "offset": 1953635
+ },
+ {
+  "prop": "label",
+  "text": "Update pending quota wrap",
+  "offset": 1954786
+ },
+ {
+  "prop": "description",
+  "text": "Show or settle a local, user-approved context wrap offer.",
+  "offset": 1954826
+ },
+ {
+  "prop": "description",
+  "text": "Choose Wrap up again to retry, or keep working.",
+  "offset": 1955491
+ },
+ {
+  "prop": "children",
+  "text": "Save a handoff for this session?",
+  "offset": 1955842
+ },
+ {
+  "prop": "description",
+  "text": "Saving a handoff for this session.",
+  "offset": 1956528
+ },
+ {
+  "prop": "children",
+  "text": "Wrap up",
+  "offset": 1956578
+ },
+ {
+  "prop": "title",
+  "text": "omnirush.ai Web needs an active plan",
+  "offset": 2103642
+ },
+ {
+  "prop": "body",
+  "text": "Your organization does not have an active omnirush.ai Web subscription or complimentary access. Get omnirush.ai Web in Den to start your cloud workspace.",
+  "offset": 2103686
+ },
+ {
+  "prop": "title",
+  "text": "Workspace needs attention",
+  "offset": 2103871
+ },
+ {
+  "prop": "body",
+  "text": "We couldn’t start the sandbox. Retry, or sign out and reconnect.",
+  "offset": 2103904
+ },
+ {
+  "prop": "title",
+  "text": "Couldn’t check your workspace",
+  "offset": 2104005
+ },
+ {
+  "prop": "body",
+  "text": "omnirush.ai Cloud didn’t answer. Your sandbox may still be running, so try checking again.",
+  "offset": 2104042
+ },
+ {
+  "prop": "title",
+  "text": "Still working on it…",
+  "offset": 2104150
+ },
+ {
+  "prop": "body",
+  "text": "This is taking longer than usual. You can keep waiting or check again.",
+  "offset": 2104178
+ },
+ {
+  "prop": "title",
+  "text": "Starting your workspace…",
+  "offset": 2104286
+ },
+ {
+  "prop": "body",
+  "text": "Usually under a minute. We’ll open it the moment it’s ready.",
+  "offset": 2104318
+ },
+ {
+  "prop": "title",
+  "text": "Updating your workspace…",
+  "offset": 2104412
+ },
+ {
+  "prop": "body",
+  "text": "We’re applying the latest omnirush.ai image. Your files and sessions come along.",
+  "offset": 2104444
+ },
+ {
+  "prop": "title",
+  "text": "Waking your workspace…",
+  "offset": 2104535
+ },
+ {
+  "prop": "body",
+  "text": "Your sandbox is coming back online. We’ll open it as soon as it’s ready.",
+  "offset": 2104565
+ },
+ {
+  "prop": "label",
+  "text": "omnirush.ai Web plan required",
+  "offset": 2106365
+ },
+ {
+  "prop": "label",
+  "text": "Couldn’t check workspace",
+  "offset": 2106570
+ },
+ {
+  "prop": "label",
+  "text": "Workspace needs attention",
+  "offset": 2106780
+ },
+ {
+  "prop": "label",
+  "text": "Updating your workspace…",
+  "offset": 2106968
+ },
+ {
+  "prop": "label",
+  "text": "Waking your workspace…",
+  "offset": 2107185
+ },
+ {
+  "prop": "label",
+  "text": "Provisioning your workspace…",
+  "offset": 2107397
+ },
+ {
+  "prop": "children",
+  "text": "Check again",
+  "offset": 2115467
+ },
+ {
+  "prop": "children",
+  "text": "We’ll open your workspace automatically when it’s ready.",
+  "offset": 2115974
+ },
+ {
+  "prop": "title",
+  "text": "Select and copy for support",
+  "offset": 2116413
+ },
+ {
+  "prop": "children",
+  "text": "Update now",
+  "offset": 2116911
+ },
+ {
+  "prop": "children",
+  "text": "Takes about 30 seconds. Your files and sessions come along.",
+  "offset": 2116993
+ },
+ {
+  "prop": "children",
+  "text": "omnirush.ai couldn't start",
+  "offset": 2120793
+ },
+ {
+  "prop": "children",
+  "text": "Return to a version that works on this computer.",
+  "offset": 2120877
+ },
+ {
+  "prop": "children",
+  "text": "Restore previous version",
+  "offset": 2121195
+ },
+ {
+  "prop": "children",
+  "text": "Pick another version",
+  "offset": 2121371
+ },
+ {
+  "prop": "children",
+  "text": "react profiler",
+  "offset": 2126648
+ },
+ {
+  "prop": "title",
+  "text": "Reset counters",
+  "offset": 2127031
+ },
+ {
+  "prop": "title",
+  "text": "Hide (Cmd+Shift+P to toggle)",
+  "offset": 2127370
+ },
+ {
+  "prop": "children",
+  "text": "No profiler data yet. Interact with the app.",
+  "offset": 2127562
+ },
+ {
+  "prop": "children",
+  "text": "Cmd+Shift+P to toggle. Prod builds: off.",
+  "offset": 2129012
+ },
+ {
+  "prop": "children",
+  "text": "render watchdog",
+  "offset": 2131848
+ },
+ {
+  "prop": "children",
+  "text": "hottest committed React surfaces",
+  "offset": 2131933
+ },
+ {
+  "prop": "title",
+  "text": "Hide (Cmd+Shift+L to toggle)",
+  "offset": 2132543
+ },
+ {
+  "prop": "children",
+  "text": "No render samples yet. Interact with the app.",
+  "offset": 2132735
+ },
+ {
+  "prop": "children",
+  "text": "Cmd+Shift+L toggles. Also available in window.__omnirush.slice(\"reactRenderWatchdog\").",
+  "offset": 2133967
+ },
+ {
+  "prop": "label",
+  "text": "New tab",
+  "offset": 2147453
+ },
+ {
+  "prop": "title",
+  "text": "${u.panel} settings",
+  "offset": 2157300
+ },
+ {
+  "prop": "name",
+  "text": "Terminal ${a.nextNumber}",
+  "offset": 2492815
+ },
+ {
+  "prop": "text",
+  "text": "Exited${r===null?\"\":",
+  "offset": 2494456
+ },
+ {
+  "prop": "text",
+  "text": "Starting…",
+  "offset": 2495304
+ },
+ {
+  "prop": "message",
+  "text": "Could not start the terminal.",
+  "offset": 2495699
+ },
+ {
+  "prop": "message",
+  "text": "Failed to load organization MCP connections.",
+  "offset": 3067503
+ },
+ {
+  "prop": "message",
+  "text": "Failed to start the connection.",
+  "offset": 3068838
+ },
+ {
+  "prop": "message",
+  "text": "Failed to disconnect the account.",
+  "offset": 3069268
+ },
+ {
+  "prop": "name",
+  "text": "Google Workspace",
+  "offset": 4131479
+ },
+ {
+  "prop": "name",
+  "text": "Microsoft 365",
+  "offset": 4131578
+ },
+ {
+  "prop": "message",
+  "text": "Could not open setup.",
+  "offset": 4133651
+ },
+ {
+  "prop": "placeholder",
+  "text": "Find a connector…",
+  "offset": 4134530
+ },
+ {
+  "prop": "children",
+  "text": "No connectors match your search.",
+  "offset": 4135551
+ },
+ {
+  "prop": "children",
+  "text": "Open preview",
+  "offset": 4139140
+ },
+ {
+  "prop": "children",
+  "text": "Try this app in the preview, ask for changes here, then choose Save to use it again.",
+  "offset": 4139232
+ },
+ {
+  "prop": "children",
+  "text": "Copy these details when reporting the rendering problem.",
+  "offset": 4145233
+ },
+ {
+  "prop": "title",
+  "text": "${t} interactive view",
+  "offset": 4151758
+ },
+ {
+  "prop": "title",
+  "text": "App preview",
+  "offset": 4154107
+ },
+ {
+  "prop": "title",
+  "text": "Open ${s} in default app",
+  "offset": 4160962
+ },
+ {
+  "prop": "children",
+  "text": "Choose an option or approve the request to continue.",
+  "offset": 4169248
+ },
+ {
+  "prop": "children",
+  "text": "This step stopped before it finished. Retry to continue.",
+  "offset": 4169522
+ },
+ {
+  "prop": "children",
+  "text": "Choose an option or approve the request to continue.",
+  "offset": 4170659
+ },
+ {
+  "prop": "children",
+  "text": "No terminal result was observed. This step may still be running; check the session before retrying.",
+  "offset": 4170935
+ },
+ {
+  "prop": "children",
+  "text": "Thinking…",
+  "offset": 4171654
+ },
+ {
+  "prop": "children",
+  "text": "Tool step unavailable",
+  "offset": 4178908
+ },
+ {
+  "prop": "children",
+  "text": "Waiting for your action",
+  "offset": 4179675
+ },
+ {
+  "prop": "children",
+  "text": "Choose an option or approve the request to continue.",
+  "offset": 4179759
+ },
+ {
+  "prop": "children",
+  "text": "Task interrupted",
+  "offset": 4180178
+ },
+ {
+  "prop": "children",
+  "text": "This step stopped before it finished. Retry to continue.",
+  "offset": 4180261
+ },
+ {
+  "prop": "title",
+  "text": "Open ${s} in Artifacts",
+  "offset": 4182421
+ },
+ {
+  "prop": "title",
+  "text": "Skill: ${e.name}",
+  "offset": 4184690
+ }
+]

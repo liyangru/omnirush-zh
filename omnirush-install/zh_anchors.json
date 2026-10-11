@@ -1,0 +1,426 @@
+[
+ [
+  "children:\"Audit trail\"",
+  "children:\"审计日志\""
+ ],
+ [
+  "\"aria-label\":\"Audit trail\",title:\"A local activity record reconstructed from this task and workspace. Integrity verification is not enabled in this version.\"",
+  "\"aria-label\":\"审计日志\",title:\"根据此任务与工作区重建的本地活动记录。此版本未启用完整性校验。\""
+ ],
+ [
+  "\"aria-label\":\"Audit trail has a failure\"",
+  "\"aria-label\":\"审计日志存在失败记录\""
+ ],
+ [
+  "\"aria-label\":\"Audit trail is waiting for approval\"",
+  "\"aria-label\":\"审计日志正在等待批准\""
+ ],
+ [
+  "\"aria-label\":\"Workflows\",title:\"Build sequential workflows and choose connected models for each step\"",
+  "\"aria-label\":\"工作流\",title:\"构建顺序化工作流，并为每一步选择已连接的模型\""
+ ],
+ [
+  "children:\"Workflows\"",
+  "children:\"工作流\""
+ ],
+ [
+  "\"Workflows & model routing\"",
+  "\"工作流与模型路由\""
+ ],
+ [
+  "{value:\"routing\",label:\"Model routing\"}",
+  "{value:\"routing\",label:\"模型路由\"}"
+ ],
+ [
+  "{value:\"workflows\",label:\"Workflows\"}",
+  "{value:\"workflows\",label:\"工作流\"}"
+ ],
+ [
+  "{value:\"runs\",label:\"Run history\"}",
+  "{value:\"runs\",label:\"运行历史\"}"
+ ],
+ [
+  "tooltip:\"Settings\",\"aria-label\":\"Settings\",children:[o.jsx($w,{className:\"size-4\"}),o.jsx(\"span\",{children:\"Settings\"})]",
+  "tooltip:\"设置\",\"aria-label\":\"设置\",children:[o.jsx($w,{className:\"size-4\"}),o.jsx(\"span\",{children:\"设置\"})]"
+ ],
+ [
+  "||\"Your account\":\"sign in to omnirush.ai\"",
+  "||\"你的账号\":\"登录 omnirush.ai\""
+ ],
+ [
+  "t?.reauthorizationRequired?\"Sign in again to continue\":\"Use omnirush.ai models with your account\"",
+  "t?.reauthorizationRequired?\"请重新登录以继续\":\"使用你的账号访问 omnirush.ai 模型\""
+ ],
+ [
+  "`connected to ${a}`:\"omnirush.ai models ready\"",
+  "`已连接到 ${a}`:\"omnirush.ai 模型已就绪\""
+ ],
+ [
+  ":s:\"Sign in to omnirush.ai\"",
+  ":s:\"登录 omnirush.ai\""
+ ],
+ [
+  "e<5?{title:\"what would you like to work on?\",subtitle:\"describe the outcome you need\"}:e<12?{title:\"good morning. how can I help?\",subtitle:\"what are we getting done?\"}:e<17?{title:\"good afternoon. how can I help?\",subtitle:\"what should we tackle?\"}:e<22?{title:\"good evening. how can I help?\",subtitle:\"what are we getting done?\"}:{title:\"what would you like to work on?\",subtitle:\"describe the outcome you need\"}",
+  "e<5?{title:\"你想做什么？\",subtitle:\"描述你期望的结果\"}:e<12?{title:\"早上好，我能帮上什么忙？\",subtitle:\"我们今天要完成什么？\"}:e<17?{title:\"下午好，我能帮上什么忙？\",subtitle:\"我们要处理什么？\"}:e<22?{title:\"晚上好，我能帮上什么忙？\",subtitle:\"我们今天要完成什么？\"}:{title:\"你想做什么？\",subtitle:\"描述你期望的结果\"}"
+ ],
+ [
+  "title:\"Fix a hard bug\",description:\"Reproduce it, find the root cause, fix and test\"",
+  "title:\"修复疑难 Bug\",description:\"复现问题、定位根因、修复并验证\""
+ ],
+ [
+  "title:\"Make it faster\",description:\"Measure, find the bottleneck, show before/after\"",
+  "title:\"提升性能\",description:\"测量、定位瓶颈、给出前后对比\""
+ ],
+ [
+  "title:\"Fix the build\",description:\"Get the build, CI or Docker setup passing\"",
+  "title:\"修复构建\",description:\"让构建、CI 或 Docker 配置通过\""
+ ],
+ [
+  "title:\"Refactor or migrate\",description:\"Move a module or library, keep behaviour the same\"",
+  "title:\"重构或迁移\",description:\"迁移模块或依赖库，保持行为不变\""
+ ],
+ [
+  "title:\"Build a real feature\",description:\"Design, implement across the code, add tests\"",
+  "title:\"实现完整功能\",description:\"设计、跨代码库实现、补充测试\""
+ ],
+ [
+  "title:\"Systems work\",description:\"Networking, storage, scheduling or concurrency\"",
+  "title:\"系统层工作\",description:\"网络、存储、调度或并发\""
+ ],
+ [
+  "prompt:\"There's a bug in this project: {describe the symptom}. Reproduce it with a failing test or command first, find the root cause, fix it, and run the tests until they pass.\"",
+  "prompt:\"这个项目有个 Bug：{describe the symptom}。先用一个失败的测试或命令复现它，找到根因并修复，然后运行测试直到全部通过。\""
+ ],
+ [
+  "prompt:\"{Part} of this project is too slow. Measure it first (benchmark or profiler), find the bottleneck, optimise it, and show before/after numbers.\"",
+  "prompt:\"这个项目的 {Part} 太慢了。先做测量（基准测试或性能分析器），找到瓶颈并优化，然后给出优化前后的数据对比。\""
+ ],
+ [
+  "prompt:\"The build/CI/Docker setup for this project is broken or missing: {what}. Get it building from a clean checkout and make the build pass.\"",
+  "prompt:\"这个项目的构建/CI/Docker 配置已损坏或缺失：{what}。请从干净检出开始让它可以构建，并让构建通过。\""
+ ],
+ [
+  "prompt:\"Migrate {module/library} in this project to {target}. Update every caller, keep behaviour the same, and run the tests after each step.\"",
+  "prompt:\"把这个项目中的 {module/library} 迁移到 {target}。更新所有调用方，保持行为不变，并在每一步之后运行测试。\""
+ ],
+ [
+  "prompt:\"Add {feature} to this project end to end: design it, implement it across the code that needs it, add tests, and run them.\"",
+  "prompt:\"为这个项目端到端地添加 {feature}：先设计，再在需要的代码中实现，补充测试并运行。\""
+ ],
+ [
+  "prompt:\"Work on {the networking/storage/scheduler/concurrency part} of this project: {goal}. Write tests that exercise it and run them.\"",
+  "prompt:\"处理这个项目的{the networking/storage/scheduler/concurrency part}：{goal}。编写覆盖它的测试并运行。\""
+ ],
+ [
+  "OTt=[\"Organization prompt 1\",\"Organization prompt 2\",\"Organization prompt 3\"]",
+  "OTt=[\"组织提示词 1\",\"组织提示词 2\",\"组织提示词 3\"]"
+ ],
+ [
+  "||\"Organization prompt\"",
+  "||\"组织提示词\""
+ ],
+ [
+  "{recent:\"Recent\",actions:\"Actions\",settings:\"Settings\",sessions:\"Sessions\"}",
+  "{recent:\"最近\",actions:\"操作\",settings:\"设置\",sessions:\"会话\"}"
+ ],
+ [
+  "case\"general\":return\"Settings\";",
+  "case\"general\":return\"设置\";"
+ ],
+ [
+  "breadcrumb:\"Settings\",group:\"settings\"",
+  "breadcrumb:\"设置\",group:\"settings\""
+ ],
+ [
+  "breadcrumb:\"Settings › Library\"",
+  "breadcrumb:\"设置 › 资料库\""
+ ],
+ [
+  "breadcrumb:\"Settings › Advanced\"",
+  "breadcrumb:\"设置 › 高级\""
+ ],
+ [
+  "title:a===\"advanced\"?\"Advanced settings\":uf(a)",
+  "title:a===\"advanced\"?\"高级设置\":uf(a)"
+ ],
+ [
+  "\"Connected\":\"Sign in to your account\"",
+  "\"已连接\":\"登录你的账号\""
+ ],
+ [
+  "\"omnirush.ai models are ready on this Mac.\"",
+  "\"omnirush.ai 模型已在此 Mac 上就绪。\""
+ ],
+ [
+  "\"Your system keyring is not available right now. Sign in again to continue.\"",
+  "\"系统密钥环当前不可用。请重新登录以继续。\""
+ ],
+ [
+  "\"Your session expired. Sign in again to continue.\"",
+  "\"你的会话已过期。请重新登录以继续。\""
+ ],
+ [
+  "\"Sign in in your browser, then return here.\"",
+  "\"请在浏览器中登录，然后返回此处。\""
+ ],
+ [
+  "\"The omnirush.ai account service has not been configured for this build.\"",
+  "\"此构建未配置 omnirush.ai 账户服务。\""
+ ],
+ [
+  "tracking-[0.15em] text-dls-secondary\",children:\"Account\"}",
+  "tracking-[0.15em] text-dls-secondary\",children:\"账号\"}"
+ ],
+ [
+  "tracking-[0.15em] text-dls-secondary\",children:\"Workspace\"})",
+  "tracking-[0.15em] text-dls-secondary\",children:\"工作区\"})"
+ ],
+ [
+  "tracking-[0.15em] text-dls-secondary\",children:\"Global\"})",
+  "tracking-[0.15em] text-dls-secondary\",children:\"全局\"})"
+ ],
+ [
+  "onClick:()=>t.setFilter(\"workspace\"),children:\"Workspace\"}",
+  "onClick:()=>t.setFilter(\"workspace\"),children:\"工作区\"}"
+ ],
+ [
+  "const eHt=[{tab:\"preferences\",icon:B$,title:\"Preferences\",desc:\"Default model, reasoning, and compaction.\"},{tab:\"permissions\",icon:Ihe,title:\"Permissions\",desc:\"Authorized folders and file access.\"},{tab:\"advanced\",icon:H$,title:\"Advanced\",desc:\"Runtime, engine, recovery, and developer options.\"}]",
+  "const eHt=[{tab:\"preferences\",icon:B$,title:\"偏好设置\",desc:\"默认模型、推理与上下文压缩。\"},{tab:\"permissions\",icon:Ihe,title:\"权限\",desc:\"已授权的文件夹与文件访问。\"},{tab:\"advanced\",icon:H$,title:\"高级\",desc:\"运行时、引擎、恢复与开发者选项。\"}]"
+ ],
+ [
+  "tHt=[{tab:\"ai\",icon:Jx,title:\"AI 提供商\",desc:\"Connect services that provide AI models.\"},{tab:\"appearance\",icon:Phe,title:\"Appearance\",desc:\"Theme, font size, and display.\"},{tab:\"voice\",icon:F$,title:\"Voice\",desc:\"Dictation, microphone, and hotkey.\"},{tab:\"environment\",icon:jb,title:\"Environment\",desc:\"Environment variables and paths.\"},{tab:\"updates\",icon:rd,title:\"Updates\",desc:\"App version and update channel.\"}]",
+  "tHt=[{tab:\"ai\",icon:Jx,title:\"AI 提供商\",desc:\"连接提供 AI 模型的服务。\"},{tab:\"appearance\",icon:Phe,title:\"外观\",desc:\"主题、字体大小与显示。\"},{tab:\"voice\",icon:F$,title:\"语音\",desc:\"听写、麦克风与快捷键。\"},{tab:\"environment\",icon:jb,title:\"环境变量\",desc:\"环境变量与路径。\"},{tab:\"updates\",icon:rd,title:\"更新\",desc:\"应用版本与更新通道。\"}]"
+ ],
+ [
+  "case\"preferences\":return\"Preferences\";case\"permissions\":return\"Permissions\";",
+  "case\"preferences\":return\"偏好设置\";case\"permissions\":return\"权限\";"
+ ],
+ [
+  "case\"appearance\":return b(\"settings.tab_appearance\");case\"voice\":return\"Voice\";",
+  "case\"appearance\":return b(\"settings.tab_appearance\");case\"voice\":return\"语音\";"
+ ],
+ [
+  "case\"voice\":return\"Dictation, microphone, and hotkey\";",
+  "case\"voice\":return\"听写、麦克风与快捷键\";"
+ ],
+ [
+  "case\"general\":return\"Overview of all settings\";",
+  "case\"general\":return\"所有设置的概览\";"
+ ],
+ [
+  "children:s?\"Waiting…\":\"Sign in\"",
+  "children:s?\"等待中…\":\"登录\""
+ ],
+ [
+  "`Connected to ${t}`:`Account server: ${t}`",
+  "`已连接到 ${t}`:`账号服务器：${t}`"
+ ],
+ [
+  "`${Math.round(g.percent)}% used`",
+  "`${Math.round(g.percent)}% 已用`"
+ ],
+ [
+  "A?\"omnirush.ai Cloud\":\"Sign in\"",
+  "A?\"omnirush.ai Cloud\":\"登录\""
+ ],
+ [
+  "A?\"Restoring your session\":\"Sync with omnirush.ai Cloud\"",
+  "A?\"正在恢复你的会话\":\"与 omnirush.ai Cloud 同步\""
+ ],
+ [
+  "const _8t={oauth:\"Sign in\",oauth_client:\"Admin setup\",api_key:\"API key\",instant:\"Ready to add\",suite:\"Guided setup\"}",
+  "const _8t={oauth:\"登录\",oauth_client:\"管理员配置\",api_key:\"API 密钥\",instant:\"可立即添加\",suite:\"引导式设置\"}"
+ ],
+ [
+  "\"the account server\"",
+  "\"账号服务器\""
+ ],
+ [
+  "`Signed out on this device and revoked its device session on ${n}.`",
+  "`已在此设备退出登录，并已撤销其在 ${n} 上的设备会话。`"
+ ],
+ [
+  "`Signed out on this device. ${n} had already revoked this device session.`",
+  "`已在此设备退出登录。${n} 早已撤销该设备会话。`"
+ ],
+ [
+  "`Signed out on this device. ${n} has no remote sign-out endpoint, so the device session was not revoked there.`",
+  "`已在此设备退出登录。${n} 没有远程登出端点，因此未在该处撤销设备会话。`"
+ ],
+ [
+  "`Signed out on this device. ${n} could not be reached, so the device session was not revoked there.`",
+  "`已在此设备退出登录。无法连接到 ${n}，因此未在该处撤销设备会话。`"
+ ],
+ [
+  "`Signed out on this device. The device session on ${n} could not be revoked.`",
+  "`已在此设备退出登录。无法撤销 ${n} 上的设备会话。`"
+ ],
+ [
+  "\"Use the omnirush.ai Browser extension to \"",
+  "\"使用 omnirush.ai 浏览器扩展来 \""
+ ],
+ [
+  "\"Use Computer Use to \"",
+  "\"使用计算机操作来 \""
+ ],
+ [
+  "\"Use the Ollama extension to \"",
+  "\"使用 Ollama 扩展来 \""
+ ],
+ [
+  "\"omnirush.ai Browser is ready by default in desktop workspaces.\"",
+  "\"omnirush.ai 浏览器在桌面工作区中默认即可用。\""
+ ],
+ [
+  "ref:\"omnirush-browser\",label:\"Enabled\"",
+  "ref:\"omnirush-browser\",label:\"已启用\""
+ ],
+ [
+  "name:\"Computer Use\"",
+  "name:\"计算机操作\""
+ ],
+ [
+  "\"Computer Use supports macOS 14+, Windows, and Linux X11. On macOS, grant Accessibility and Screen Recording. Windows and Linux control require the app in front; your input pauses control. Wayland requires a separate desktop portal integration. For each session, choose an app window and allow reading, app controls, or mouse and keyboard. Choose Allow and start in omnirush.ai. Your input interrupts control; Stop in the preview ends access.\"",
+  "\"计算机操作支持 macOS 14+、Windows 和 Linux X11。在 macOS 上，请授予辅助功能与屏幕录制权限。Windows 和 Linux 的控制要求应用处于前台，你的输入会暂停控制。Wayland 需要单独的桌面门户集成。每个会话中，选择一个应用窗口，并允许读取、应用控制或鼠标键盘操作。在 omnirush.ai 中选择「允许并开始」。你的输入会中断控制；在预览中点击「停止」即结束访问。\""
+ ],
+ [
+  "primaryCta:\"Enable Computer Use\"",
+  "primaryCta:\"启用计算机操作\""
+ ],
+ [
+  "secondaryCta:\"Check desktop access\"",
+  "secondaryCta:\"检查桌面访问权限\""
+ ],
+ [
+  "\"Run Ollama locally, choose or pull a model, then add it as an OmniRush provider.\"",
+  "\"在本地运行 Ollama，选择或拉取模型，然后将其添加为 OmniRush 提供商。\""
+ ],
+ [
+  "\"Add Ollama model\"",
+  "\"添加 Ollama 模型\""
+ ],
+ [
+  "\"Pull model\"",
+  "\"拉取模型\""
+ ],
+ [
+  "\"Computer Use could not create a CLI connection. Check desktop access and try again.\"",
+  "\"计算机操作无法创建 CLI 连接。请检查桌面访问权限后重试。\""
+ ],
+ [
+  "\"Refresh Computer Use status\"",
+  "\"刷新计算机操作状态\""
+ ],
+ [
+  "\"Ready · app access is approved when a session starts\"",
+  "\"就绪 · 会话开始时会批准应用访问\""
+ ],
+ [
+  "\"Connected · finish macOS permissions below\"",
+  "\"已连接 · 请在下方完成 macOS 权限设置\""
+ ],
+ [
+  "\"Connected · check desktop access below\"",
+  "\"已连接 · 请在下方检查桌面访问权限\""
+ ],
+ [
+  "\"Permissions are ready. Enable Computer Use for this workspace.\"",
+  "\"权限已就绪。为此工作区启用计算机操作。\""
+ ],
+ [
+  "\"Set up Computer Use for this workspace\"",
+  "\"为此工作区设置计算机操作\""
+ ],
+ [
+  "\"Desktop access is unavailable on this session\"",
+  "\"此会话无法使用桌面访问权限\""
+ ],
+ [
+  "\"Enabling…\"",
+  "\"正在启用…\""
+ ],
+ [
+  "\"Allow macOS access\":\"Check desktop access\"",
+  "\"允许 macOS 访问权限\":\"检查桌面访问权限\""
+ ],
+ [
+  "\"Enable this provider\"",
+  "\"启用此提供商\""
+ ],
+ [
+  "\"Disable this provider\"",
+  "\"停用此提供商\""
+ ],
+ [
+  "children:e.isDisabled?\"Enable\":\"Enabled\"",
+  "children:e.isDisabled?\"启用\":\"已启用\""
+ ],
+ [
+  "children:[\"Use \",",
+  "children:[\"使用 \","
+ ],
+ [
+  "[\"Show \",r.appName,\" preview\"]",
+  "[\"显示 \",r.appName,\" 预览\"]"
+ ],
+ [
+  "[\"Show \",z,\" more\"]",
+  "[\"显示另外 \",z,\" 项\"]"
+ ],
+ [
+  "[\"+\",e.models.length-5,\" more\"]",
+  "[\"+\",e.models.length-5,\" 项\"]"
+ ],
+ [
+  "statusLabel:\"Signed out\"",
+  "statusLabel:\"已退出登录\""
+ ],
+ [
+  "label:\"Needs attention\"",
+  "label:\"需要处理\""
+ ],
+ [
+  "?\"Needs attention\":",
+  "?\"需要处理\":"
+ ],
+ [
+  "statusLabel:\"Not checked\"",
+  "statusLabel:\"未检查\""
+ ],
+ [
+  "\"Save changes\":\"Save\"",
+  "\"保存更改\":\"保存\""
+ ],
+ [
+  "\"Save changes\":\"Save to your dashboard\"",
+  "\"保存更改\":\"保存到你的仪表盘\""
+ ],
+ [
+  "submitLabel:\"Save changes\"",
+  "submitLabel:\"保存更改\""
+ ],
+ [
+  "\"Saving…\"]",
+  "\"保存中…\"]"
+ ],
+ [
+  "?\"Saving…\":R.view.activeRevisionId",
+  "?\"保存中…\":R.view.activeRevisionId"
+ ],
+ [
+  "o.jsx(sd,{}),\"Download\"]",
+  "o.jsx(sd,{}),\"下载\"]"
+ ],
+ [
+  "{id:\"download\",label:\"Download\"",
+  "{id:\"download\",label:\"下载\""
+ ],
+ [
+  "\"aria-label\":`Set up ${_.name}`",
+  "\"aria-label\":`设置 ${_.name}`"
+ ],
+ [
+  "{policy_off:\"Permission off\",not_configured:\"Not set up\",paused:\"Paused\",syncing:\"Syncing\",synced:\"Synced\",error:\"Needs attention\"}",
+  "{policy_off:\"权限已关闭\",not_configured:\"未设置\",paused:\"已暂停\",syncing:\"同步中\",synced:\"已同步\",error:\"需要处理\"}"
+ ]
+]

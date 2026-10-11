@@ -1,0 +1,7 @@
+# 统一换行符，避免 Windows/Unix 交替改写
+* text=auto eol=lf
+*.png binary
+*.exe binary
+*.woff binary
+*.woff2 binary
+*.ttf binary

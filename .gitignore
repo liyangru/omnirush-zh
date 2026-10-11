@@ -1,0 +1,42 @@
+# ── 应用专有内容 / 大文件，不进仓库 ───────────────────────────────
+# 官方安装包（172 MB）
+omnirush-install/omnirush-win-x64-*.exe
+# 本地 bundle 副本（各 5 MB+，属应用专有代码，运行时由脚本自动探测）
+omnirush-install/app-*.js
+omnirush-install/index-*.js
+omnirush-install/_l9_snapshot.js
+omnirush-install/*.orig-backup
+# 官方源码与文档（从应用中抽取的参考资料，仅本地保留）
+omnirush-i18n/reference/
+# 扫描器中间产物（可由 scan_*.py 重新生成）
+omnirush-install/remaining_en.json
+omnirush-install/remaining2.json
+omnirush-install/sweep.json
+omnirush-install/ui_sweep.json
+
+# ── 运行时生成的临时文件 ───────────────────────────────────────
+omnirush-install/_rt.mjs
+omnirush-install/_dbg_failed.mjs
+omnirush-install/_final_state.js
+omnirush-install/_verify_syntax.mjs
+omnirush-install/*.tmpcheck.js
+omnirush-install/*.tmpcheck.mjs
+omnirush-install/__pycache__/
+
+# ── Python ─────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# ── 编辑器 / 操作系统 ──────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+
+# ── Agent 内部工作数据（记忆/日志，不应公开）────────────────────
+.workbuddy-ai/

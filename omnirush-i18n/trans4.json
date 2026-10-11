@@ -1,0 +1,23 @@
+{
+  "context_panel.permission_source_global": "你的全局引擎配置",
+  "context_panel.permission_source_workspace": "此工作区的引擎配置",
+  "extensions.create_workspace_skill_hint": "已保存到此工作区的 skills 文件夹。重新加载后，引擎会在该工作区的每个会话中加载它。",
+  "mcp.auth.oauth_not_supported_hint": "这可能意味着：\n• 该 MCP 服务器未声明 OAuth 能力\n• 引擎需要重新加载以发现服务器能力\n• 请在 MCP 设置中重新连接 {server}",
+  "mcp.auth.reauth_cli_hint": "请在 MCP 设置中重新连接 {server}。",
+  "plugins.add_hint": "添加 npm 包名，例如 @scope/plugin",
+  "plugins.desc": "管理此项目或你的全局引擎配置的插件。",
+  "session.cmd_reload_config_detail": "无需重启即可重新读取提供商、MCP 服务器和模型配置",
+  "settings.nuke_survives_workspaces": "工作区文件夹及其中你的文件不会被改动，但每个工作区的应用状态会被移除。",
+  "settings.environment.footer_hint": "应用和引擎的环境变量键名保留给运行时装配使用。请通过 shell 配置引擎设置。",
+  "settings.environment.validation_reserved": "应用和引擎的环境变量名称由 omnirush.ai 管理。",
+  "settings.workspace_config_desc": "查看或重置此工作区的设置文件。",
+  "skills.failed_load_opencode": "加载引擎配置失败",
+  "skills.failed_parse_opencode": "解析引擎配置失败",
+  "skills.failed_update_opencode": "更新引擎配置失败",
+  "skills.no_opencode_found": "尚未找到引擎配置。添加一个插件即可创建。",
+  "skills.no_opencode_workspace": "此工作区中还没有引擎配置。",
+  "skills.no_skills": "在工作区或用户 skills 文件夹中未检测到 skills。",
+  "skills.plugin_already_listed": "该插件已在引擎配置中列出。",
+  "system.reload_body_config": "引擎在启动时读取其配置。重新加载引擎以应用更改。",
+  "system.reload_body_plugins": "引擎在启动时加载 npm 插件。重新加载引擎以应用配置更改。"
+}
