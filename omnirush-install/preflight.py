@@ -187,7 +187,21 @@ for f in sorted(os.listdir(HERE)):
             continue  # bundle 名由 _bundle.py 动态探测
         if not any(os.path.exists(os.path.join(d, fn)) for d in SEARCH_DIRS):
             missing.append(f"{f} -> {fn}")
-check("无悬空文件引用", not missing, "; ".join(missing[:5]))
+# 历史脚本（不在 apply_all2.py 主链路）所需的可重新生成输入，未随仓库分发
+OPTIONAL = {
+    "_l9_snapshot.js": "某次构建的 bundle 副本，gen_dict.py / patch_ui3.py 用",
+    "remaining_en.json": "scan_remaining.py 的扫描产物，patch_hardcoded2/3.py 用",
+    "remaining2.json": "scan_region.py 的扫描产物，patch_final.py 用",
+}
+hard = [m for m in missing if m.split("-> ")[-1] not in OPTIONAL]
+soft = [m for m in missing if m.split("-> ")[-1] in OPTIONAL]
+check("主链路输入无悬空引用", not hard, "; ".join(hard[:5]))
+if soft:
+    print(f"  ⏭  跳过 {len(soft)} 处历史脚本的可选输入（未入库，可重新生成）：")
+    for m in sorted(set(m.split("-> ")[-1] for m in soft)):
+        print(f"       · {m} —— {OPTIONAL[m]}")
+else:
+    print("  ✅ 历史脚本的可选输入齐全")
 
 print()
 print("=" * 70)

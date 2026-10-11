@@ -132,6 +132,25 @@ cp "$B.orig-backup" "$B"
   以及 `ChatGPT、Claude、Gemini…` 这类已含中文标点的产品列表。
 - CSS `className`、组件 `displayName`、文件路径、存储键名、键盘快捷键。
 
+## 未入库的文件（可重新生成）
+
+以下文件**没有**随仓库分发， 主链路也不需要它们；
+只有不在主链路里的历史脚本（`patch_hardcoded*.py` / `patch_final.py` /
+`patch_ui3.py` / `gen_dict.py` 的反推步骤）才会用到：
+
+| 文件 | 用途 | 怎么重新生成 |
+|---|---|---|
+| `_l9_snapshot.js` | 某次构建的 bundle 副本，用于反推第 10 层的英文原文 | 打完前九层后 `cp <bundle> _l9_snapshot.js` |
+| `remaining_en.json` | 英文扫描结果 | `python scan_remaining.py` |
+| `remaining2.json` | 区域扫描结果 | `python scan_region.py <lo> <hi>` |
+| `hardcoded_ui.json` | 硬编码文案清单 | `python scan_hardcoded.py`（已入库，此处仅备注） |
+
+缺失时 `gen_dict.py` 会打印说明并**一个文件都不写**，以免覆盖已提交的
+`zh_dict.json`（里面 471 条译文就是从快照反推来的）。
+
+另：官方安装包、bundle 副本、`reference/` 里的官方源码都未入库——
+体积大且属应用专有内容，详见根目录 `.gitignore`。
+
 ## 注意
 
 - **打完补丁必须重启应用**。如果是在应用运行期间覆盖 bundle，
