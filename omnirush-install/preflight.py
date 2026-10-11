@@ -192,6 +192,8 @@ OPTIONAL = {
     "_l9_snapshot.js": "某次构建的 bundle 副本，gen_dict.py / patch_ui3.py 用",
     "remaining_en.json": "scan_remaining.py 的扫描产物，patch_hardcoded2/3.py 用",
     "remaining2.json": "scan_region.py 的扫描产物，patch_final.py 用",
+    "sweep.json": "scan_sweep.py 的扫描产物（宽口径候选清单）",
+    "ui_sweep.json": "scan_ui.py 的扫描产物（按 UI 属性筛选的候选清单）",
 }
 hard = [m for m in missing if m.split("-> ")[-1] not in OPTIONAL]
 soft = [m for m in missing if m.split("-> ")[-1] in OPTIONAL]
