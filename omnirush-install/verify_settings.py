@@ -4,7 +4,6 @@
 新版把设置总览重构成了两个 switch 函数（标签映射 + 描述映射），
 硬编码的几条英文分别在这两个函数里，且不带句末句号。
 """
-import os
 import re
 
 from _bundle import detect_bundle

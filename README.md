@@ -1,5 +1,7 @@
 # OmniRush 简体中文汉化
 
+[![CI](https://github.com/liyangru/omnirush-zh/actions/workflows/ci.yml/badge.svg)](https://github.com/liyangru/omnirush-zh/actions/workflows/ci.yml)
+
 把 **OmniRush.ai 桌面版**的界面文案完整本地化为简体中文。
 
 OmniRush 官方只内置了 **55.6%** 的中文（1168 / 2101 个 i18n 键），
@@ -29,11 +31,12 @@ python apply_all2.py
 # 3. 重启 OmniRush
 ```
 
-发布前自检（17 项）：
+自检（18 项）：
 
 ```bash
 cd omnirush-install
-python preflight.py
+python preflight.py        # 本机全量：会实际重打一遍补丁并校验
+python preflight.py --ci   # 只跑不依赖本机安装的部分（CI 用）
 ```
 
 ## 目录
@@ -51,10 +54,10 @@ omnirush-install/ 补丁工具链（与版本无关）
   _bundle.py       从 index.html 反查当前 bundle 名（升级后不用改代码）
   patch_zh.py      注入 zh.ts + 清空白名单 + 默认中文
   apply_dict.py    套用内容级译文（锚点 + 平铺字典 + 模板兜底）
-  zh_dict.json     平铺字典：英文原文 → 中文
-  zh_anchors.json  复合锚点（整段代码片段替换，语境更精确）
-  zh_extra.json    补充字典（新版新增文案）
-  gen_dict.py      用 AST 从历史补丁脚本重新生成字典
+  zh_dict.json     平铺字典：英文原文 → 中文（1004 条）
+  zh_anchors.json  复合锚点（整段代码片段替换，语境更精确，106 条）
+  zh_extra.json    补充字典（新版新增文案，179 条）
+  gen_dict.py      用 AST 从 legacy/ 的补丁脚本重新生成字典
   verify_syntax.py ES Module 语法校验（.mjs）
   verify_final.py  运行时字符串逐键比对
   verify_hardcoded.py / verify_settings.py  界面残留检查
@@ -62,8 +65,8 @@ omnirush-install/ 补丁工具链（与版本无关）
   modprobe.mjs     Node 里 import bundle，验证模块求值不抛异常
   list_targets.py  排除库区域后列出剩余应用文案
   scan_ui.py / scan_sentences.py / scan_sweep.py  三种口径英文扫描
-  preflight.py     发布前 17 项自检
-  patch_hardcoded*.py / patch_ui*.py / ...  历史补丁（gen_dict.py 的输入）
+  preflight.py     自检（18 项；--ci 跳过需本机安装的部分）
+  legacy/          历史分层补丁脚本（已跑不通，只作 gen_dict.py 的数据来源）
   README.md        完整技术文档与踩坑记录
 ```
 
@@ -84,6 +87,13 @@ OmniRush 升级会重写整个 `app-dist/`，bundle 文件名带内容 hash，
 - **产品名与专有名词**：`omnirush.ai Cloud`、`Google Workspace`、
   语法高亮语言名、以及 `ChatGPT、Claude、Gemini…` 这类产品列表。
 - CSS 类名、组件 `displayName`、文件路径、存储键名、键盘快捷键。
+
+## 性能
+
+`apply_all2.py` 全流程（打补丁 + 四道校验）约 **18 秒**，其中补丁部分约 9 秒。
+关键优化：字面量替换从「每命中一条就重建整个 5.3 MB 字符串」改成
+「找齐所有位置 → 去重叠 → 一次写回」，光这一项就从 27 秒降到 11 秒
+（输出逐字节一致）。详见 `omnirush-install/README.md`。
 
 ## 已知坑（详见 `omnirush-install/README.md`）
 

@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  preflight:
+    name: 自检（不依赖本机安装 OmniRush）
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # preflight --ci 会做：
+      #   语法编译 / 未定义名字静态检查 / zh.ts 与三份字典完整性 /
+      #   引用文件检查 / 临时文件检查
+      # 跳过需要本机安装 OmniRush 的 apply_all2 与剩余英文扫描。
+      - name: 运行 preflight
+        working-directory: omnirush-install
+        run: python preflight.py --ci

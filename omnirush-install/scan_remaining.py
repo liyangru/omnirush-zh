@@ -7,7 +7,7 @@
   * 改成：扫出所有字符串字面量 -> 排除 i18n 数据区 -> 排除明显非文案的
     （URL / class / 路径 / 标识符 / 纯占位） -> 剩下的按「是否含中文」分类。
 """
-import json, os, re, sys, collections
+import json, os, re, collections
 from _bundle import detect_bundle
 
 B = detect_bundle()  # noqa

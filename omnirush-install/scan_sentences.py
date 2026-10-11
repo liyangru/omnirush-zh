@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """宽口径终检：找出「首字母大写 + 以句末标点结尾 + 3 个以上英文单词」的句子，
 这类几乎必然是给人看的文案。输出后与已知非 UI 清单比对。"""
-import os, re, sys
+import re
 from _bundle import detect_bundle
 
 B = detect_bundle()  # noqa

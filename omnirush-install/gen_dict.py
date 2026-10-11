@@ -30,6 +30,7 @@ import os
 import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+LEGACY = os.path.join(HERE, "legacy")   # 历史分层补丁脚本（译文表的来源）
 CJK = re.compile(r"[\u4e00-\u9fff]")
 QLIT = re.compile(r'"((?:[^"\\]|\\.)*)"|\'((?:[^\'\\]|\\.)*)\'|`((?:[^`\\]|\\.)*)`')
 
@@ -112,10 +113,10 @@ def add_anchors(anchors, tag):
 for script, var in [("patch_hardcoded.py", "ANCHORS"),
                     ("patch_settings.py", "A"),
                     ("patch_ext.py", "ANCHORS")]:
-    anchors = top_assign(os.path.join(HERE, script), var) or []
+    anchors = top_assign(os.path.join(LEGACY, script), var) or []
     add_anchors([(a[0], a[1]) for a in anchors], f"{script}:{var}")
 for script, var in [("patch_ui.py", "RAW"), ("patch_ui2.py", "RAW")]:
-    raws = top_assign(os.path.join(HERE, script), var) or []
+    raws = top_assign(os.path.join(LEGACY, script), var) or []
     add_anchors([(a[0], a[1]) for a in raws], f"{script}:{var}")
 
 # ---------- 1. 字典型 / 二元组型表 ----------
@@ -123,7 +124,7 @@ for script, var in [("patch_hardcoded.py", "TRANS"),
                     ("patch_hardcoded2.py", "T"),
                     ("patch_hardcoded3.py", "T3"),
                     ("patch_final.py", "T")]:
-    tbl = top_assign(os.path.join(HERE, script), var)
+    tbl = top_assign(os.path.join(LEGACY, script), var)
     if not tbl:
         continue
     add(list(tbl.items()) if isinstance(tbl, dict) else tbl, f"{script}:{var}")
@@ -132,7 +133,7 @@ for script, var in [("patch_hardcoded.py", "TRANS"),
 # 注意顺序：锚点/RAW 的上下文相关译文先入字典，随后被下面的通用译文覆盖，
 # 保证「锚点整段替换优先、通用译文兜底」。
 for script, var in [("patch_ui.py", "T"), ("patch_ui2.py", "T")]:
-    tbl = top_assign(os.path.join(HERE, script), var) or []
+    tbl = top_assign(os.path.join(LEGACY, script), var) or []
     add([(a, b) for a, b, _ in tbl], f"{script}:{var}")
 
 # ---------- 3. 第 10 层：从快照反推英文原文 ----------
@@ -183,7 +184,7 @@ def extract(s, i):
     return -1
 
 
-t10 = top_assign(os.path.join(HERE, "patch_ui3.py"), "T") or []
+t10 = top_assign(os.path.join(LEGACY, "patch_ui3.py"), "T") or []
 out, miss = [], 0
 for off, trans in (t10 if snap is not None else []):
     e = extract(snap, off)

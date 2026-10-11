@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """验证第二层补丁：截图中的英文串是否已替换为中文，且无残留。"""
-import os, re
 from _bundle import detect_bundle
 
 B = detect_bundle()  # noqa

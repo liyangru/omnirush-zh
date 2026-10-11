@@ -83,6 +83,19 @@ python apply_all2.py
 | `scan_ui.py` / `scan_sentences.py` / `scan_sweep.py` | 三种口径的英文扫描 |
 | `_bundle.py` | 打印当前检测到的 bundle 路径 |
 
+## 性能
+
+全流程 `apply_all2.py` 约 **18 秒**（补丁部分约 9 秒）。
+
+早期版本每命中一条字典就要重建整个 5.3 MB bundle 字符串
+（约 1175 次、每次搬 10 MB），光这一项就要 12 秒。
+现在改为**找齐所有命中位置 → 去重叠 → 一次写回**：
+
+- 条目按英文长度降序处理，去重叠时「同起点保留更长者」，
+  正好等价于原来的「长句优先」语义；
+- i18n 数据区边界只定位一次，之后按替换长度差增量平移；
+- 验证方式：与逐条替换版**逐字节比对**（sha256 一致）才算通过。
+
 ## 已修复事故
 
 ### 一、白屏（双反引号 + node --check 假阳性）
@@ -131,6 +144,12 @@ cp "$B.orig-backup" "$B"
 - **产品名与列表**：`omnirush.ai Cloud`、`Google Workspace`、语法高亮语言名，
   以及 `ChatGPT、Claude、Gemini…` 这类已含中文标点的产品列表。
 - CSS `className`、组件 `displayName`、文件路径、存储键名、键盘快捷键。
+
+## 目录说明
+
+- 根目录：活跃工具链（`apply_all2.py` 主链路 + 校验 + 扫描）
+- `legacy/`：历史分层补丁脚本。**在当前 build 上已跑不通**，
+  只作为 `gen_dict.py` 的译文表来源保留，详见 `legacy/README.md`
 
 ## 未入库的文件（可重新生成）
 

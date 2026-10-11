@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """列出应用自身代码区（排除第三方库）里剩余的高分英文句子，输出完整文本。"""
-import os, re
+import re
 from _bundle import detect_bundle
 
 B = detect_bundle()  # noqa

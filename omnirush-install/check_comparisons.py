@@ -2,7 +2,7 @@
 """安全检查：在官方原版 bundle 里找出「被 === / !== 比较使用的英文长句」。
 这类字符串常被当作状态码/键值，若误译为中文会导致逻辑失效。
 """
-import os, re
+import re
 from _bundle import detect_bundle
 
 B = detect_bundle() + ".orig-backup"  # noqa
