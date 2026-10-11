@@ -24,6 +24,7 @@
 这里按顺序对齐其中的引号片段，取出 (英文, 中文) 对。
 """
 import ast
+import sys
 import json
 import os
 import re
@@ -135,8 +136,17 @@ for script, var in [("patch_ui.py", "T"), ("patch_ui2.py", "T")]:
     add([(a, b) for a, b, _ in tbl], f"{script}:{var}")
 
 # ---------- 3. 第 10 层：从快照反推英文原文 ----------
+# 快照是某次构建的本地副本，未随仓库分发（体积大且属应用专有代码）。
+# 缺失时跳过这一步：zh_dict.json 里已有的对应条目不受影响，只是无法重新反推。
 SNAP = os.path.join(HERE, "_l9_snapshot.js")
-snap = open(SNAP, encoding="utf-8").read()
+if os.path.exists(SNAP):
+    snap = open(SNAP, encoding="utf-8").read()
+else:
+    snap = None
+    print("  ! 未找到 _l9_snapshot.js —— 无法反推第 10 层的 471 条英文原文。")
+    print("    为免覆盖已提交的 zh_dict.json，本次不写入任何文件。")
+    print("    如需完整重建：把某一层打完的 bundle 存为 _l9_snapshot.js 后重跑。")
+    sys.exit(0)
 
 
 def extract(s, i):
@@ -175,7 +185,7 @@ def extract(s, i):
 
 t10 = top_assign(os.path.join(HERE, "patch_ui3.py"), "T") or []
 out, miss = [], 0
-for off, trans in t10:
+for off, trans in (t10 if snap is not None else []):
     e = extract(snap, off)
     if e < 0:
         miss += 1
