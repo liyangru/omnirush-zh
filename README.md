@@ -17,21 +17,29 @@ OmniRush 官方只内置了 **55.6%** 的中文（1168 / 2101 个 i18n 键），
 |---|---|
 | 中文汉字数 | 12,324 → **38,956**（**+216%**） |
 | i18n 语言包 | 1168 → **2078 键，100% 功能覆盖** |
-| 界面硬编码文案 | 内容级字典 **1360+ 条**，替换 **1,350+ 处** |
+| 界面硬编码文案 | 内容级字典 **1288 条**，替换 **1465 处** |
 | 校验 | 语法 / 键值 / 残留英文 / 模块求值 四项全绿 |
 
 ## 用法
 
+> 📖 **第一次用？看 [使用教程 USAGE.md](USAGE.md)** —— 前置条件、逐步操作、
+> 常见问题（白屏 / 没生效 / 权限 / 升级后失效）、自定义译文、工具速查表。
+
 ```bash
-# 1. 先装好 OmniRush 桌面版
-# 2. 一键汉化（幂等：每次先从官方原版还原再打补丁）
+# 1. 先装好 OmniRush 桌面版，并完全退出（含托盘图标）
+# 2. 环境自检（只读，会告诉你缺什么）
 cd omnirush-install
+python doctor.py
+
+# 3. 一键汉化（幂等：每次先从官方原版还原再打补丁）
 python apply_all2.py
 
-# 3. 重启 OmniRush
+# 4. 重启 OmniRush
 ```
 
-自检（18 项）：
+需要 **Python 3.8+** 和 **Node.js**（写入前用 `node --check` 做语法校验）。
+
+自检（21 项）：
 
 ```bash
 cd omnirush-install
@@ -42,6 +50,9 @@ python preflight.py --ci   # 只跑不依赖本机安装的部分（CI 用）
 ## 目录
 
 ```
+USAGE.md          使用教程：前置条件 / 逐步操作 / FAQ / 自定义译文 / 工具速查表
+CHANGELOG.md      版本更新日志
+
 omnirush-i18n/    补全版中文语言包
   zh.ts            2078 键的简体中文翻译（主交付物）
   en.ts            官方英文语言包（从本地 bundle 抽取）
@@ -51,6 +62,7 @@ omnirush-i18n/    补全版中文语言包
 
 omnirush-install/ 补丁工具链（与版本无关）
   apply_all2.py    ★ 一键入口：还原 → 打补丁 → 四道校验
+  doctor.py        ★ 环境自检（只读）：平台 / Python / Node / 安装路径 / 可写性
   _bundle.py       从 index.html 反查当前 bundle 名（升级后不用改代码）
   patch_zh.py      注入 zh.ts + 清空白名单 + 默认中文
   apply_dict.py    套用内容级译文（锚点 + 平铺字典 + 模板兜底）
@@ -65,7 +77,7 @@ omnirush-install/ 补丁工具链（与版本无关）
   modprobe.mjs     Node 里 import bundle，验证模块求值不抛异常
   list_targets.py  排除库区域后列出剩余应用文案
   scan_ui.py / scan_sentences.py / scan_sweep.py  三种口径英文扫描
-  preflight.py     自检（18 项；--ci 跳过需本机安装的部分）
+  preflight.py     自检（21 项；--ci 跳过需本机安装的部分）
   legacy/          历史分层补丁脚本（已跑不通，只作 gen_dict.py 的数据来源）
   README.md        完整技术文档与踩坑记录
 ```

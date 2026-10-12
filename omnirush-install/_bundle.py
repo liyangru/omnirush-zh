@@ -16,6 +16,11 @@ ASSETS = os.path.join(APP_DIST, "assets")
 def detect_bundle():
     """返回 index.html 实际引用的入口 bundle 绝对路径"""
     html_path = os.path.join(APP_DIST, "index.html")
+    if not os.path.exists(html_path):
+        raise SystemExit(
+            f"!! 找不到 {html_path}\n"
+            f"   请确认已安装 OmniRush 桌面版；若安装在别处，\n"
+            f"   改 {os.path.abspath(__file__)} 里的 APP_DIST。")
     html = open(html_path, encoding="utf-8").read()
     m = re.search(r'src="\./assets/(app-[A-Za-z0-9_-]+\.js)"', html)
     if not m:

@@ -2,6 +2,9 @@
 
 把已安装的 OmniRush 桌面版界面文案替换为简体中文。
 
+> 面向使用者的操作教程（前置条件 / 逐步操作 / FAQ / 自定义译文）在
+> [`../USAGE.md`](../USAGE.md)。本文档讲的是实现原理与维护细节。
+
 ## 现状
 
 | 项 | 值 |
@@ -9,10 +12,10 @@
 | 应用 | OmniRush.ai Desktop（官方安装包） |
 | 渲染层位置 | `%LOCALAPPDATA%\Programs\@omnirushdesktop\resources\app-dist\` |
 | 原始 bundle | 5,271,388 字符，中文汉字 12,324 个 |
-| 汉化后 | 5,273,775 字符，中文汉字 **38,944** 个（**+215%**） |
+| 汉化后 | 5,273,739 字符，中文汉字 **38,956** 个（**+216%**） |
 | 官方中文覆盖率 | 1168 / 2101 键 |
 | 补全后 | **2078 键 = 100% 功能覆盖** |
-| 界面文案 | 内容级字典 **1360 条**，共替换 **1457+ 处** |
+| 界面文案 | 内容级字典 **1288 条**（1182 平铺 + 106 锚点），实际替换 **1465 处** |
 | 应用可执行性 | 模块求值成功；`OmniRush.ai.exe --version` → `v24.18.0`（正常） |
 
 > 渲染层 UI 不在 `app.asar` 里，而是 electron-builder 的 extraResources，
@@ -21,10 +24,13 @@
 ## 一键重新应用（推荐）
 
 ```bash
-python apply_all2.py
+python doctor.py       # 环境自检（只读）：平台 / Python / Node / 安装路径 / 可写性
+python apply_all2.py   # 一键汉化
 ```
 
-幂等：每次先从 `.orig-backup` 还原官方原版，再打补丁，最后跑四道校验。
+`doctor.py` 逐项检查前置条件并给出修复建议，不满足就明确告诉你缺什么、怎么装。
+
+`apply_all2.py` 幂等：每次先从 `.orig-backup` 还原官方原版，再打补丁，最后跑四道校验。
 
 ## ⚠️ 应用会自动更新，补丁会被覆盖
 
@@ -82,6 +88,7 @@ python apply_all2.py
 | `list_targets.py` | 排除第三方库区域后列出剩余应用文案（完整文本） |
 | `scan_ui.py` / `scan_sentences.py` / `scan_sweep.py` | 三种口径的英文扫描 |
 | `_bundle.py` | 打印当前检测到的 bundle 路径 |
+| `doctor.py` | 环境自检（只读）：平台 / Python / Node / 安装路径 / 进程 / 可写性 |
 
 ## 性能
 
