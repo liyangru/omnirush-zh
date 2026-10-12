@@ -154,7 +154,26 @@ python list_targets.py      # 列出还没译的英文（正常会剩 20 条左�
 **这是正常现象，不是出错了。** OmniRush 自动更新会重写整个 `app-dist/`，
 把补丁连同备份一起清掉，界面回到官方 55.6% 中文。
 
-**重新汉化**：
+**方案 A：装个监视器，让它自己修（推荐）**
+
+```bash
+cd omnirush-install
+python autorepatch_setup.py --install     # 装开机启动项并立即启动
+```
+
+装完之后你**什么都不用管**：它会每 20 秒瞄一眼 bundle，
+发现被更新覆盖了（且没汉化）就自动重打。装在
+`HKCU\...\Run`，用 `pythonw.exe` 跑，**没有控制台窗口**。
+
+```bash
+python autorepatch_setup.py --status      # 看是否在跑 + 最近日志
+python autorepatch_setup.py --uninstall   # 不想要了就卸掉
+```
+
+> 内存占用约 55 MB。如果你更愿意手动控制，可以不装，
+> 每次更新后跑一次 `python apply_all2.py` 就行。
+
+**方案 B：手动重打**
 
 ```bash
 cd omnirush-install
@@ -162,11 +181,21 @@ python doctor.py            # 确认安装路径正常
 python apply_all2.py        # 重打一遍
 ```
 
-不需要改任何代码。整套工具不依赖文件名和字节偏移：
+两种方案都不需要改任何代码。整套工具不依赖文件名和字节偏移：
 
-- bundle 名字带内容 hash（`app-CAtSUbH6.js` → `app-DohXHoBv.js`），
+- bundle 名字带内容 hash（`app-DohXHoBv.js` → `app-B-rOJfFZ.js`），
   脚本从 `index.html` 的 `<script src>` 自动反查；
 - 译文是「内容级」的（英文原文 → 中文），跟偏移无关。
+
+**更新后如果重打失败，多半是官方加了新的 i18n 键**，输出会列出缺哪些键：
+
+```
+  en 有但补全版缺译的键: ['session.run_status_working', ...]
+!! 补全版覆盖率不足 -> 中止
+```
+
+这是**故意拦下来的**，避免静默漏译。按[自定义译文](#六自定义译文进阶)
+把缺的键补进 `omnirush-i18n/zh.ts`，再重打即可。
 
 ### 换回官方原版 / 卸载
 
@@ -282,6 +311,27 @@ m = re.search(r'src="\./assets/(app-[A-Za-z0-9_-]+\.js)"', html)
 
   找到后按[自定义译文](#六自定义译文进阶)补上。
 
+### Q11：老是弹出「重启以更新」，重启后汉化就没了
+
+这是**正常行为**，不用去关自动更新。OmniRush 每天会检查一次更新，
+下载完成后提示「重启以更新」；重启安装时会重写 `app-dist/`，汉化随之消失。
+
+两个办法：
+
+1. **装自动重打监视器**（推荐，见[日常维护](#四日常维护)）——
+   装一次，以后更新后自动恢复，你什么都不用做。
+2. **不装监视器**，每次更新后手动跑一次 `python apply_all2.py`。
+
+> 不建议关自动更新：OmniRush 是活跃开发的工具，新版本常带重要修复。
+> 关掉更新反而会积累风险。让它更新、让工具自动补汉化，是更省心的组合。
+
+### Q12：自动重打监视器占多少资源？不想要了怎么卸？
+
+- 每 20 秒做一次文件 `stat`（几乎不耗 CPU），内存约 55 MB
+- 卸载：`python autorepatch_setup.py --uninstall`
+- 临时停一下：在 `omnirush-install/` 下建一个空文件
+  `autorepatch_watch.stop`，它会在下一轮自行退出
+
 ---
 
 ## 六、自定义译文（进阶）
@@ -367,18 +417,21 @@ python list_targets.py      # 看目标文案是否已从剩余清单消失
 |---|---|
 | `python doctor.py` | **环境自检**（只读）。汉化前先跑 |
 | `python apply_all2.py` | **一键汉化**（幂等）。升级后重跑 |
+| `python autorepatch_setup.py --install` | **装自动重打**：更新后自动恢复汉化 |
 | `python preflight.py` | 项目自检 21 项（本机全量，会实际重打一遍） |
 
 ### 排查用
 
 | 命令 | 作用 |
 |---|---|
-| `python list_targets.py` | 列出还没汉化的英文文案 |
+| `python list_targets.py` | 列出还没汉化的英文（整句口径） |
+| `python scan_labels.py` | 列出还没汉化的**短标签**（单词标题，≤12 字符那批） |
 | `python scan_ui.py` | 按 UI 属性（`placeholder` / `title` 等）扫描 |
 | `python scan_sentences.py` | 按句子特征扫描 |
 | `python scan_sweep.py` | 宽口径扫描（候选最多） |
 | `python check_comparisons.py` | 找出「被 `===` 比较的英文」，防止误译破坏逻辑 |
 | `python verify_final.py` | 逐键比对运行时字符串 |
+| `python auto_repatch.py --check` | 只检查汉化是否还在（退出码 0=在 1=没了） |
 
 ### 校验用（一般不用手动跑，`apply_all2.py` 会自动调）
 

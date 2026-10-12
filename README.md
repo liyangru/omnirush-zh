@@ -15,9 +15,9 @@ OmniRush 官方只内置了 **55.6%** 的中文（1168 / 2101 个 i18n 键），
 
 | 项 | 值 |
 |---|---|
-| 中文汉字数 | 12,324 → **38,956**（**+216%**） |
-| i18n 语言包 | 1168 → **2078 键，100% 功能覆盖** |
-| 界面硬编码文案 | 内容级字典 **1288 条**，替换 **1465 处** |
+| 中文汉字数 | 12,324 → **39,644**（**+222%**） |
+| i18n 语言包 | 1168 → **2093 键，100% 功能覆盖**（适配 3.4.3） |
+| 界面硬编码文案 | 内容级字典 **1336 条**，替换 **1576 处** |
 | 校验 | 语法 / 键值 / 残留英文 / 模块求值 四项全绿 |
 
 ## 用法
@@ -54,28 +54,33 @@ USAGE.md          使用教程：前置条件 / 逐步操作 / FAQ / 自定义�
 CHANGELOG.md      版本更新日志
 
 omnirush-i18n/    补全版中文语言包
-  zh.ts            2078 键的简体中文翻译（主交付物）
+  zh.ts            2093 键的简体中文翻译（主交付物，适配 3.4.3）
   en.ts            官方英文语言包（从本地 bundle 抽取）
   zh.original.ts   官方原版中文（用于 diff 与核对）
   merge.py         合并多个译稿生成 zh.ts
-  trans1-4.json    分批译稿
+  trans1-5.json    分批译稿
 
 omnirush-install/ 补丁工具链（与版本无关）
   apply_all2.py    ★ 一键入口：还原 → 打补丁 → 四道校验
   doctor.py        ★ 环境自检（只读）：平台 / Python / Node / 安装路径 / 可写性
+  autorepatch_setup.py ★ 装/卸「更新后自动重打」的开机启动项
+  autorepatch_watch.py   常驻监视器（发现被更新覆盖就自动重打）
+  auto_repatch.py        检查 + 按需重打（可单独运行）
   _bundle.py       从 index.html 反查当前 bundle 名（升级后不用改代码）
   patch_zh.py      注入 zh.ts + 清空白名单 + 默认中文
   apply_dict.py    套用内容级译文（锚点 + 平铺字典 + 模板兜底）
   zh_dict.json     平铺字典：英文原文 → 中文（1004 条）
   zh_anchors.json  复合锚点（整段代码片段替换，语境更精确，106 条）
-  zh_extra.json    补充字典（新版新增文案，179 条）
+  zh_extra.json    补充字典（新版新增文案，227 条）
   gen_dict.py      用 AST 从 legacy/ 的补丁脚本重新生成字典
   verify_syntax.py ES Module 语法校验（.mjs）
   verify_final.py  运行时字符串逐键比对
   verify_hardcoded.py / verify_settings.py  界面残留检查
   check_comparisons.py  排查「被 === 比较的英文」被误译
   modprobe.mjs     Node 里 import bundle，验证模块求值不抛异常
-  list_targets.py  排除库区域后列出剩余应用文案
+  list_targets.py  排除库区域后列出剩余应用文案（整句口径）
+  scan_labels.py   同上，但抓短标签（单词标题那批）
+  extract_locale.py 升级后从 bundle 重新抽取官方 en.ts / zh.original.ts
   scan_ui.py / scan_sentences.py / scan_sweep.py  三种口径英文扫描
   preflight.py     自检（21 项；--ci 跳过需本机安装的部分）
   legacy/          历史分层补丁脚本（已跑不通，只作 gen_dict.py 的数据来源）
@@ -90,6 +95,31 @@ OmniRush 升级会重写整个 `app-dist/`，bundle 文件名带内容 hash，
 - `_bundle.py` 从 `index.html` 反查真实 bundle 名；
 - 译文全是「内容级」的（英文原文 → 中文）；
 - 升级后直接重跑 `python apply_all2.py` 即可。
+
+### 让汉化在更新后自动恢复（推荐）
+
+不想每次更新后手动重打，就装一个常驻监视器：
+
+```bash
+cd omnirush-install
+python autorepatch_setup.py --install     # 装开机启动项 + 立即启动
+python autorepatch_setup.py --status      # 查看状态与最近日志
+python autorepatch_setup.py --uninstall   # 卸载
+```
+
+它会每 20 秒对 bundle 做一次 stat（开销可忽略），
+一旦发现文件被换掉且未汉化，就自动重跑 `apply_all2.py`。
+装在 `HKCU\...\Run`，用 `pythonw.exe` 启动，**没有控制台窗口**。
+
+| 文件 | 作用 |
+|---|---|
+| `auto_repatch.py` | 检查 + 按需重打（也可单独运行；`--check` 只检查） |
+| `autorepatch_watch.py` | 常驻监视器（`--iterations N` 可限定轮数用于验证） |
+| `autorepatch_setup.py` | 安装/卸载/查看启动项 |
+
+> 更新到新版本后，官方可能新增 i18n 键，此时重打会因「覆盖率不足」中止并
+> 列出缺哪些键——这是**故意的**，避免静默漏译。补译进 `zh.ts` 后即可通过。
+> 3.4.3 新增的 16 个 `session.run_status_*` 键已补上。
 
 ## 未汉化的部分（有意保留）
 

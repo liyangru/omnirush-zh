@@ -1,4 +1,4 @@
-import re, json, collections
+import re, json, collections, os
 
 PLURAL = ("zero", "one", "two", "few", "many", "other")
 PLURAL_RE = re.compile(r"_(?:" + "|".join(PLURAL) + r")$")
@@ -20,8 +20,13 @@ en, en_order = parse("en.ts")
 zh_old, _ = parse("zh.original.ts")
 
 mine = {}
-for i in (1, 2, 3, 4):
-    mine.update(json.load(open(f"trans{i}.json", encoding="utf-8")))
+# 读取全部 trans*.json（按编号排序，后写的覆盖先写的）
+# 这样以后新增译稿只要放 trans6.json、trans7.json 即可，不用改本脚本
+_trans = sorted((f for f in os.listdir(".") if re.fullmatch(r"trans\d+\.json", f)),
+                key=lambda s: int(re.search(r"\d+", s).group()))
+for fn in _trans:
+    mine.update(json.load(open(fn, encoding="utf-8")))
+print("译稿文件:", ", ".join(_trans))
 
 # 找出 en 中的复数基键：任何带 CLDR 复数后缀的键都算
 plural_bases = {PLURAL_RE.sub("", k) for k in en if PLURAL_RE.search(k)}

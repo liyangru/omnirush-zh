@@ -41,8 +41,11 @@ def parse_ts(fn):
 en = parse_ts(os.path.join(I18N, "en.ts"))
 old = parse_ts(os.path.join(I18N, "zh.original.ts"))
 mine = {}
-for i in (1, 2, 3, 4):
-    mine.update(json.load(open(os.path.join(I18N, f"trans{i}.json"), encoding="utf-8")))
+# 读取全部 trans*.json（与 merge.py 同逻辑）
+_trans = sorted((f for f in os.listdir(I18N) if re.fullmatch(r"trans\d+\.json", f)),
+                key=lambda s: int(re.search(r"\d+", s).group()))
+for fn in _trans:
+    mine.update(json.load(open(os.path.join(I18N, fn), encoding="utf-8")))
 
 # 期望的最终 zh 键值（与 merge.py 同逻辑）
 plural_bases = {PRE.sub("", k) for k in en if PRE.search(k)}

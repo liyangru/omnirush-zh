@@ -12,10 +12,10 @@
 | 应用 | OmniRush.ai Desktop（官方安装包） |
 | 渲染层位置 | `%LOCALAPPDATA%\Programs\@omnirushdesktop\resources\app-dist\` |
 | 原始 bundle | 5,271,388 字符，中文汉字 12,324 个 |
-| 汉化后 | 5,273,739 字符，中文汉字 **38,956** 个（**+216%**） |
+| 汉化后 | 5,277,760 字符，中文汉字 **39,644** 个（**+222%**） |
 | 官方中文覆盖率 | 1168 / 2101 键 |
-| 补全后 | **2078 键 = 100% 功能覆盖** |
-| 界面文案 | 内容级字典 **1288 条**（1182 平铺 + 106 锚点），实际替换 **1465 处** |
+| 补全后 | **2093 键 = 100% 功能覆盖**（适配 3.4.3） |
+| 界面文案 | 内容级字典 **1336 条**（1230 平铺 + 106 锚点），实际替换 **1576 处** |
 | 应用可执行性 | 模块求值成功；`OmniRush.ai.exe --version` → `v24.18.0`（正常） |
 
 > 渲染层 UI 不在 `app.asar` 里，而是 electron-builder 的 extraResources，
@@ -46,14 +46,53 @@ python apply_all2.py   # 一键汉化
 如果更新后 `apply_all2.py` 报「找不到 app-\*.js 入口引用」，说明目录结构又变了，
 改 `_bundle.py` 里的正则即可。
 
+## 自动重打（更新后无需人工介入）
+
+```bash
+python autorepatch_setup.py --install     # 装开机启动项 + 立即启动
+python autorepatch_setup.py --status      # 状态 + 最近日志
+python autorepatch_setup.py --uninstall   # 卸载
+```
+
+三个脚本分工：
+
+| 脚本 | 职责 |
+|---|---|
+| `auto_repatch.py` | 判断「是否已汉化」，未汉化就调用 `apply_all2.py`。`--check` 只判断不改 |
+| `autorepatch_watch.py` | 常驻循环：每 20 秒 `stat` 一次 bundle，签名变了才读文件判断 |
+| `autorepatch_setup.py` | 管理 `HKCU\...\Run` 启动项（UTF-16 存储，中文路径安全） |
+
+实现细节：
+
+- **低成本**：常态下每 20 秒只做一次 `os.stat`，不读 5 MB 文件；
+  只有 (路径, 大小, mtime) 变化时才读内容判断。
+- **不在写入途中读**：`stable_size()` 要求文件大小连续两次一致。
+- **防并发**：`auto_repatch.lock`，10 分钟内的锁视为有效。
+- **判据**：汉字数 ≥ 25,000 且含 zh 语言包标记（官方原版约 12,300）。
+- **崩溃可见**：`pythonw` 无控制台，未捕获异常会写进
+  `autorepatch_watch.log` 而不是静默消失。
+- **可停**：在同目录建 `autorepatch_watch.stop`，下一轮自行退出。
+
+### 更新后重打失败：多半是新增了 i18n 键
+
+官方发新版时常会加键。此时 `patch_zh.py` 的覆盖率检查会**主动中止**并列出缺哪些键：
+
+```
+en 有但补全版缺译的键: ['session.run_status_working', ...]
+!! 补全版覆盖率不足 -> 中止
+```
+
+这是刻意设计——宁可停下也不能静默漏译。把缺的键补进 `../omnirush-i18n/zh.ts`
+再重打即可（3.4.3 新增的 16 个 `session.run_status_*` 已补齐）。
+
 ## 译文数据
 
 | 文件 | 内容 |
 |---|---|
-| `zh.ts`（`../omnirush-i18n/`） | 补全版中文语言包，2078 键，i18n 层专用 |
+| `zh.ts`（`../omnirush-i18n/`） | 补全版中文语言包，2093 键，i18n 层专用 |
 | `zh_dict.json` | 平铺字典：英文原文 → 中文，1004 条 |
 | `zh_anchors.json` | 复合锚点（整段代码片段替换，语境更精确），106 条 |
-| `zh_extra.json` | 补充字典：新版新增文案，178 条 |
+| `zh_extra.json` | 补充字典：新版新增文案，227 条 |
 
 `gen_dict.py` 用 AST 从各历史补丁脚本里抽取译文、从 `_l9_snapshot.js` 反推
 第十层的英文原文，生成上面两个文件；改完历史脚本后重跑它即可刷新。

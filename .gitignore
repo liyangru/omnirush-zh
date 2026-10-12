@@ -23,6 +23,14 @@ omnirush-install/*.tmpcheck.js
 omnirush-install/*.tmpcheck.mjs
 omnirush-install/__pycache__/
 
+# ── 自动重打监视器的运行时状态 ─────────────────────────────────
+omnirush-install/auto_repatch.log
+omnirush-install/auto_repatch.lock
+omnirush-install/autorepatch_watch.log
+omnirush-install/autorepatch_watch.log.old
+omnirush-install/autorepatch_watch.heartbeat
+omnirush-install/autorepatch_watch.stop
+
 # ── Python ─────────────────────────────────────────────────────
 __pycache__/
 *.py[cod]

@@ -1,0 +1,18 @@
+{
+ "session.run_status_working": "正在处理你的任务",
+ "session.run_status_working_detail": "智能体可能正在思考、调用工具或编辑文件。你可以随时停止。",
+ "session.run_status_preparing": "正在准备你的任务",
+ "session.run_status_preparing_detail": "正在连接工具并发送你的消息。",
+ "session.run_status_responding": "正在撰写回复",
+ "session.run_status_responding_detail": "智能体正在完成当前步骤。你可以继续等待，也可以停止本次运行。",
+ "session.run_status_waiting": "等待你的输入",
+ "session.run_status_waiting_detail": "回答下面的问题或批准请求，任务才能继续。",
+ "session.run_status_compacting": "正在为任务腾出空间",
+ "session.run_status_compacting_detail": "正在总结对话内容。你的文件和消息不受影响。",
+ "session.run_status_retrying": "正在重试请求",
+ "session.run_status_acceptance_title": "需要确认上一条消息",
+ "session.run_status_acceptance_detail": "我们无法确认它是否已启动，因此已暂停发送以避免重复。",
+ "session.run_status_check_action": "检查消息",
+ "session.run_status_stopping_action": "正在停止…",
+ "session.run_status_queued": "{count} 条后续消息将等待本轮运行结束后发送。"
+}

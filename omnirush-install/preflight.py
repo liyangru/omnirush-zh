@@ -197,7 +197,7 @@ if not CI:
     check("apply_all2.py 退出码 0", r.returncode == 0, (r.stderr or "")[:300])
     for kw, label in [
         ("ES Module 语法校验通过", "ES Module 语法校验"),
-        ("键集合一致  : True", "2078 键一致"),
+        ("键集合一致  : True", "zh.ts 键集合一致"),
         ("值不一致    : 0", "0 值差异"),
         ("残留英文串: 0 | 缺失中文串: 0", "首页/侧栏干净"),
         ("残留英文: 0 | 缺失中文: 0", "设置页干净"),
